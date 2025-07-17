@@ -1,0 +1,23 @@
+import { createContext, useContext, useReducer, useState } from "react";
+
+const DataContext = createContext({});
+
+export const DataProvider = ({ children }) => {
+    const [theme,setTheme] = useState("light")
+
+    
+    
+  return (
+    <DataContext.Provider
+      value={{
+       theme,setTheme
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
+
+const useDataContext = () => useContext(DataContext);
+
+export default useDataContext;

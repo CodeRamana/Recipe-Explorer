@@ -1,6 +1,23 @@
 import { FaRegHeart } from "react-icons/fa";
-import { MdLightMode } from "react-icons/md";
+import { MdLightMode,MdDarkMode } from "react-icons/md";
+import useDataContext from "../context/DataContext";
+import { useEffect } from "react";
 const NavBar = () => {
+  const {theme,setTheme} = useDataContext()
+  
+  const handleTheme = () => {
+    if(document.body.classList.contains("light") && theme !== 'light'){
+      document.body.classList.remove("light");
+    }
+    else{
+      document.body.classList.remove("dark");
+    }
+    document.body.classList.toggle(theme)
+
+  }
+  useEffect(()=>{
+    handleTheme(theme)
+  },[theme])
   return (
     <div className="border-b-2 border-[#f5f2f0] dark:border-black">
       <nav className="max-w-[1200px] mx-auto w-[95%] flex justify-between items-center p-5 text-[#181411]">
@@ -19,8 +36,8 @@ const NavBar = () => {
           <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3">
             <FaRegHeart />
           </div>
-          <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3">
-            <MdLightMode />
+          <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3" onClick={()=>setTheme(theme === "light" ? "dark" : "light")}>
+           {theme === "light" ? <MdLightMode /> : <MdDarkMode /> } 
           </div>
         </div>
       </nav>
