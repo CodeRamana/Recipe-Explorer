@@ -1,6 +1,16 @@
+import { Outlet } from "react-router-dom"
+import NavBar from "../components/NavBar"
+
 const Wrapper = () => {
   return (
-    <div>Wrapper</div>
+    <div className="bg-white dark:bg-black">
+      <header>
+      <NavBar/>
+      </header> 
+      <main>
+        <Outlet/>
+      </main>
+    </div>
   )
 }
 

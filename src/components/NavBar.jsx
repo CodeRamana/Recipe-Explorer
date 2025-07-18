@@ -2,8 +2,10 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdLightMode,MdDarkMode } from "react-icons/md";
 import useDataContext from "../context/DataContext";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const NavBar = () => {
-  const {theme,setTheme} = useDataContext()
+  const {theme,setTheme,faviourite} = useDataContext()
+  const navigate = useNavigate()
   
   const handleTheme = () => {
     if(document.body.classList.contains("light") && theme !== 'light'){
@@ -30,11 +32,12 @@ const NavBar = () => {
               ></path>
             </svg>
           </div>
-          <h2 className="font-bold text-lg">Recipe Explorer</h2>
+          <h2 className="font-bold text-lg" onClick={()=>navigate("/")}>Recipe Explorer</h2>
         </div>
         <div className="flex justify-center items-center gap-3 mx-3 sm:gap-5">
-          <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3">
+          <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3 relative" onClick={()=>navigate("/faviourites")}>
             <FaRegHeart />
+            <span className="text-black rounded-full px-2 bg-orange-600 absolute -top-2 left-7">{faviourite['totalfaviouriteRecipes']}</span>
           </div>
           <div className="bg-[#f5f2f0] p-2 rounded-md sm:p-3" onClick={()=>setTheme(theme === "light" ? "dark" : "light")}>
            {theme === "light" ? <MdLightMode /> : <MdDarkMode /> } 
