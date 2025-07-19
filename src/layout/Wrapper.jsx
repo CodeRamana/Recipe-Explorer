@@ -3,11 +3,11 @@ import NavBar from "../components/NavBar"
 
 const Wrapper = () => {
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white min-h-screen dark:bg-black">
       <header>
       <NavBar/>
       </header> 
-      <main>
+      <main className="mb-10">
         <Outlet/>
       </main>
     </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const FeatureCard = ({ detail }) => {
+const FeatureCard = ({ detail,recipe }) => {
   const IconComponent = detail.logo;
   const ValueComponent = detail.value;
 
@@ -12,8 +12,8 @@ const FeatureCard = ({ detail }) => {
         {detail.title}
       </p>
 
-      {detail.title === "Faviourite" ? (
-        <ValueComponent className="text-orange-500 text-md font-extrabold" />
+      {detail.title === "Favourite" ? (
+        <ValueComponent recipe = {recipe} style={true} className="text-orange-500 text-md font-extrabold" />
       ) : detail.title === "Source" ? (
         <Link
           to={detail.value}
@@ -22,7 +22,7 @@ const FeatureCard = ({ detail }) => {
           Source
         </Link>
       ) : (
-        <p className="text-md font-extrabold tracking-wide font-[poppins]">
+        <p className="text-md font-extrabold tracking-wide font-[poppins] dark:text-white">
           {detail.value}
         </p>
       )}

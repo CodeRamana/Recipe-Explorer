@@ -16,14 +16,14 @@ const App = () => {
                 path: "/",
                 element: <Home/>,
                 loader:fetchDetails,
-                hydrateFallbackElement:<h1>Loading...</h1>
+                hydrateFallbackElement:<h1 className="text-center mx-auto my-10">Loading...</h1>
             },
             {
               path:"/recipe/:id",
               element:<Recipe/>
             },
             {
-              path:"/faviourites",
+              path:"/favourites",
               element:<Faviourites/>
             }
         ]

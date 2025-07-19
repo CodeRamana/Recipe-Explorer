@@ -5,13 +5,13 @@ import useDataContext from '../context/DataContext'
 import Dropdown from '../components/Dropdown';
 import Tabs from '../components/Tabs';
 import api from '../instances/instance';
-import { act, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import RecipeGrid from '../components/RecipeGrid';
 
 const Home = () => {
     const data = useLoaderData();
     const { search, handleSearch, searchResult, setSearchResult, categoryResult, setCategoryResult,
-        ingredientResult, setIngredientResult, areaResult, setAreaResult, renderResult, setRenderResult,faviourite } = useDataContext();
+        ingredientResult, setIngredientResult, areaResult, setAreaResult, renderResult, setRenderResult,favourite } = useDataContext();
 
     const intersectionResults = () => {
         const activeSets = [searchResult, categoryResult, ingredientResult, areaResult]
@@ -83,9 +83,9 @@ const Home = () => {
             else setRenderResult([])
     }, [searchResult, categoryResult, ingredientResult, areaResult, search])
 
-    // useEffect(()=>{
-    //     localStorage.setItem("faviourite",faviourite)
-    // },[faviourite])
+    useEffect(()=>{
+        localStorage.setItem("favourite",JSON.stringify(favourite))
+    },[favourite])
 
     useEffect(() => {
         if (search['searchTerm'] !== "") fetchSearchResults(search['searchTerm'])
@@ -108,7 +108,7 @@ const Home = () => {
                 <div className='absolute top-[45%] left-[5%] max-w-[1200px] w-[90%] mx-auto'>
                     <SearchBar data={search.searchTerm} setData={handleSearch} />
                 </div>
-                <p className='absolute top-[20%] left-[5%] font-extrabold text-3xl text-center text-white font-[poppins] sm:text-5xl lg:top-[25%]'> Craving something delicious? Search here...</p>
+                <p className='absolute top-[20%] left-[5%] font-extrabold text-3xl text-center font-[poppins] sm:text-5xl lg:top-[25%] text-white'> Craving something delicious? Search here...</p>
                 <div className='absolute flex gap-3 max-w-[1000px] top-[61%] left-[5%]'>
                     {Object.keys(data).map((item, index) => <Dropdown key={index} obj={data[item]} />)}
                 </div>
@@ -123,9 +123,9 @@ const Home = () => {
                 <RecipeGrid data={renderResult}/>
             </div>
             {renderResult.length === 0 && (
-                <div className='max-w-[1000px] w-[90%] mx-auto border border-gray-300 rounded-md py-5 px-3 flex flex-col justify-center items-center gap-2'>
-                    <p className='text-2xl font-extrabold font-[poppins] sm:text-4xl'>Can't find what you're looking for?</p>
-                    <p className='text-lg text-gray-300 font-extrabold font-[poppins] '>Refine your search with powerful filters based on ingredients, categories, and meal types to discover your perfect recipe.</p>
+                <div className='max-w-[1000px] w-[90%] mb-10 mx-auto border border-gray-300 rounded-md py-5 px-3 flex flex-col justify-center items-center text-center gap-3'>
+                    <p className='text-2xl font-extrabold font-[poppins] dark:text-white sm:text-4xl'>Can't find what you're looking for?</p>
+                    <p className='text-sm text-gray-500 font-extrabold font-[poppins] dark:text-gray-300 sm:text-lg'>Refine your search with powerful filters based on ingredients, categories, and meal types to discover your perfect recipe.</p>
                     <button className='bg-orange-600 text-sm text-white px-3 py-2 rounded-md'>Go to Search & Filter</button>
                 </div>
             ) }
