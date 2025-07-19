@@ -36,7 +36,7 @@ const NavBar = () => {
           </div>
           <h2 className="font-bold text-lg" onClick={()=>navigate("/")}>Recipe Explorer</h2>
         </div>
-        <div className="flex justify-center items-center gap-3 mx-3 sm:gap-5">
+        <div className="flex justify-center items-center gap-5 mx-3 sm:gap-5">
           {location.pathname !== "/" &&    <div className="bg-orange-100 text-orange-600 p-2 rounded-md sm:p-3 relative dark:bg-white" onClick={()=>navigate("/")}>
             <MdHome />
             </div>}
