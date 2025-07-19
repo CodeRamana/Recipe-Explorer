@@ -1,12 +1,69 @@
-# React + Vite
+# 🍽️ React Dynamic Recipe App - Recipe Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, dynamic recipe application that allows users to browse, search, filter, and favorite recipes using data from [TheMealDB Public API](https://www.themealdb.com/api.php). Built with **React**, **TailwindCSS**, and **Axios** (or Fetch API) for a fast and delightful user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- **Recipe Listings:**  
+  - Clean, modern UI listing recipes from TheMealDB.
+  - Show recipe name, thumbnail, and category.
+  - Each card is clickable, leading to full details.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Search and Filter:**
+  - Powerful search bar for recipe names and keywords.
+  - Filter options for categories, ingredients, and meal types.
+  - Search and filters work together for precise results.
+
+- **Recipe Details:**
+  - View full recipe information including description, categorized tags, ingredients, instructions, and YouTube video link (if available).
+  - Easy navigation back to the main list.
+
+- **Favorites (Optional):**
+  - Mark/unmark favorite recipes.
+  - Favorites are persisted using localStorage—even after a browser refresh.
+
+- **Responsive Design:**
+  - Seamless experience on mobile, tablet, and desktop.
+
+---
+
+## 🚀 Demo
+
+See the live version on Netlify:  
+**[Your Netlify Deployment Link Here](https://recipeexplorerwebs.netlify.app/)**
+
+---
+
+## 🛠️ Tech Stack
+
+- [React JS](https://reactjs.org/) – Main library for building UI.
+- [TailwindCSS](https://tailwindcss.com/) – Utility-first styling.
+- [Axios](https://axios-http.com/) / Fetch API – HTTP requests.
+- [React Router](https://reactrouter.com/) – Client-side navigation.
+- [TheMealDB API](https://www.themealdb.com/api.php) – Public API for recipes.
+- (Optional) [rsuite](https://rsuitejs.com/) – For loading and UI elements[1].
+
+---
+
+## 📝 Getting Started
+
+**1. Clone the repo:**
+
+git clone git@github.com:CodeRamana/Recipe-Explorer.git
+cd Recipe-Explorer
+
+**2. Install dependencies:**
+
+npm install
+
+**3. Start the app locally:**
+
+npm run dev
+
+---
+
+## 🙌 Credits
+
+Developed with ❤️ by [Ramana S](https://github.com/CodeRamana)
